@@ -80,6 +80,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
-// this is just testing

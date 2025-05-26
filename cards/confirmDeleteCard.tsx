@@ -18,7 +18,7 @@ export default function ConfirmDeleteCard({ visible, onClose, onDelete }: Confir
                         </Pressable>
                         <Pressable
                             style={tw`flex-1 bg-red-500 p-2 rounded ml-3`}
-                            onPress={onDelete}  // Trigger the onDelete function
+                            onPress={onDelete}
                         >
                             <Text style={tw`text-white text-center`}>Delete</Text>
                         </Pressable>

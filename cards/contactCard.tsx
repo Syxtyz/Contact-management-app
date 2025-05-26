@@ -21,10 +21,10 @@ export default function ContactCard({ visible, onClose, onAdd }: ContactCardProp
         updated[index] = text;
         setAddresses(updated);
         const updatedErrors = [...addressErrors];
-        updatedErrors[index] = text.trim() === "" ? "Address cannot be empty" : "";
+        updatedErrors[index] = text.trim() === "" ? "Contact cannot be empty" : "";
         setAddressErrors(updatedErrors);
         const anyEmpty = updatedErrors.some(err => err !== "");
-        setAddressErrorMessage(anyEmpty ? "Address cannot be empty" : "");
+        setAddressErrorMessage(anyEmpty ? "Contact cannot be empty" : "");
     };
 
     const handleSubmit = () => {
@@ -36,11 +36,11 @@ export default function ContactCard({ visible, onClose, onAdd }: ContactCardProp
             setNameError("");
         }
         const updatedErrors = addresses.map((addr) =>
-            addr.trim() === "" ? "Address cannot be empty" : ""
+            addr.trim() === "" ? "Contact cannot be empty" : ""
         );
         setAddressErrors(updatedErrors);
         const hasEmpty = updatedErrors.some((err) => err !== "");
-        setAddressErrorMessage(hasEmpty ? "Address cannot be empty" : "");
+        setAddressErrorMessage(hasEmpty ? "Contact cannot be empty" : "");
         if (hasEmpty || name.trim() === "") {
             isValid = false;
         }
@@ -78,14 +78,14 @@ export default function ContactCard({ visible, onClose, onAdd }: ContactCardProp
                             <Text style={tw`text-red-500 text-sm mb-2`}>{nameError}</Text>
                         ) : null}
 
-                        <Text style={tw`text-base text-gray-700 font-semibold mt-3`}>Addresses:</Text>
+                        <Text style={tw`text-base text-gray-700 font-semibold mt-3`}>Contact Information:</Text>
 
                         {addresses.map((addr, idx) => (
                             <View key={idx} style={tw`flex-row items-center mb-2`}>
                                 <TextInput
                                     value={addr}
                                     onChangeText={(text) => handleChangeAddress(text, idx)}
-                                    placeholder={`Address ${idx + 1}`}
+                                    placeholder={`Contact ${idx + 1}`}
                                     style={tw`flex-1 border px-3 py-2 rounded-2xl mr-2 ${
                                         addressErrors[idx] ? "border-red-500" : "border-gray-300"
                                     }`}
@@ -101,7 +101,7 @@ export default function ContactCard({ visible, onClose, onAdd }: ContactCardProp
                                         setAddressErrors(updatedErrors);
 
                                         const anyEmpty = updatedErrors.some(err => err !== "");
-                                        setAddressErrorMessage(anyEmpty ? "Address cannot be empty" : "");
+                                        setAddressErrorMessage(anyEmpty ? "Contact cannot be empty" : "");
                                     }}
                                     style={tw`px-2 py-1 bg-red-500 rounded-full`}
                                 >
@@ -118,7 +118,7 @@ export default function ContactCard({ visible, onClose, onAdd }: ContactCardProp
                     </ScrollView>
                     <View style={tw`flex-row items-center justify-between mt-4`}>
                         <Pressable onPress={handleAddAddressField}>
-                            <Text style={tw`text-blue-600 font-semibold`}>+ Add Address</Text>
+                            <Text style={tw`text-blue-600 font-semibold`}>+ Add Contact</Text>
                         </Pressable>
                         <View style={tw`flex-row`}>
                             <Pressable onPress={onClose} style={tw`bg-gray-300 px-4 py-2 rounded-full mr-4`}>

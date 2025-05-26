@@ -55,7 +55,7 @@ export default function ContactInfoCard({ visible, onClose, contact, onSave }: D
     }
     const hasEmptyAddress = addresses.some((addr) => addr.trim() === "");
     if (hasEmptyAddress) {
-      setAddressError("Address cannot be empty");
+      setAddressError("Contact cannot be empty");
       isValid = false;
     } else {
       setAddressError("");
@@ -118,7 +118,7 @@ export default function ContactInfoCard({ visible, onClose, contact, onSave }: D
               <Text style={tw`text-red-500 text-sm mb-2`}>{nameError}</Text>
             ) : null}
             <Text style={tw`text-base text-gray-700 font-semibold mt-3`}>
-              Addresses:
+              Contact Information:
             </Text>
             {addresses.map((addr, idx) => (
               <View key={idx} style={tw`flex-row items-center mb-2`}>
@@ -128,7 +128,7 @@ export default function ContactInfoCard({ visible, onClose, contact, onSave }: D
                   }}
                   value={addr}
                   onChangeText={(text) => updateAddress(idx, text)}
-                  placeholder={`Address ${idx + 1}`}
+                  placeholder={`Contact ${idx + 1}`}
                   style={tw`flex-1 border px-3 py-2 rounded-2xl mr-2 ${
                     addr.trim() === "" && addressError ? "border-red-500" : "border-gray-300"
                   }`}
@@ -147,7 +147,7 @@ export default function ContactInfoCard({ visible, onClose, contact, onSave }: D
           </ScrollView>
           <View style={tw`flex-row justify-between items-center mt-4`}>
             <Pressable onPress={addAddress} style={tw`mt-2`}>
-              <Text style={tw`text-blue-600 font-semibold`}>+ Add Address</Text>
+              <Text style={tw`text-blue-600 font-semibold`}>+ Add Contact</Text>
             </Pressable>
             <View style={tw`flex-row`}>
               <Pressable onPress={onClose} style={tw`bg-gray-300 px-4 py-2 rounded-full mr-2`}>
